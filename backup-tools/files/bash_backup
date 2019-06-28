@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -e
+
+target_path="/home/roman/backup"
+
+mkdir -p "${target_path}"
+
+include_paths=(
+   $HOME 
+)
+
+exclude_paths=(
+)
+
+for item in "${exclude_paths[@]}"
+do
+  exclude_flags="${exclude_flags} --exclude=${item}"
+done
+
+
+for item in "${include_paths[@]}"
+do
+  include_args="${include_args} ${item}"
+done
+
+rsync -avR ${exclude_flags} ${include_args} ${target_path}
