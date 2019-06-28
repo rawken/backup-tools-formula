@@ -8,7 +8,7 @@ bash-backup-tool:
   file.managed:
     - user: root
     - name: /etc/backup_tools/bash_backup
-    - source: salt://backup_tools/bash_backup
+    - source: /srv/formulas/backup_tools/files/bash_backup
     - makedirs:
       - True
 
@@ -18,7 +18,7 @@ py-backup-tool:
     - hour: 5
   file.managed:
     - name: /etc/backup_tools/python_backup.py
-    - source: salt://backup_tools/python_backup.py
+    - source: /srv/formulas/backup_tools/files/python_backup.py
     - makedirs:
       - True
 
